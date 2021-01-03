@@ -1,0 +1,80 @@
+<!-- WRAP LAYOUT IF BOXED -->
+<div class="container" *ngIf="_boxed; else basicLayoutBlock">
+  <ng-container *ngTemplateOutlet="contentTpl"></ng-container>
+</div>
+<ng-template #basicLayoutBlock>
+  <ng-container *ngTemplateOutlet="contentTpl"></ng-container>
+</ng-template>
+<!-- YOUR LAYOUT CONTENT GOES INSIDE HERE -->
+<ng-template #contentTpl>
+  <!-- PAGE SIDEBAR -->
+  <!-- <pg-sidebar>
+    <ng-template #sideBarOverlay>
+      <div class="row">
+        <div class="col-xs-6 no-padding">
+          <a href="javascript:void(0)" class="p-l-40"><img src="assets/img/demo/social_app.svg" alt="socail">
+          </a>
+        </div>
+        <div class="col-xs-6 no-padding">
+          <a href="javascript:void(0)" class="p-l-10"><img src="assets/img/demo/email_app.svg" alt="socail">
+          </a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 m-t-20 no-padding">
+          <a href="javascript:void(0)" class="p-l-40"><img src="assets/img/demo/calendar_app.svg" alt="socail">
+          </a>
+        </div>
+        <div class="col-xs-6 m-t-20 no-padding">
+          <a href="javascript:void(0)" class="p-l-10"><img src="assets/img/demo/add_more.svg" alt="socail">
+          </a>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template #sideBarHeader>
+      <img src="assets/img/logo_blue.png" pgRetina src2x="assets/img/logo_blue_2x.png" alt="logo" class="brand"
+        width="78" height="22">
+    </ng-template>
+    <ng-template #menuItems>
+      <pg-menu-items [Items]="menuLinks">
+      </pg-menu-items>
+    </ng-template>
+  </pg-sidebar> -->
+  <!-- PAGE CONTAINER -->
+  <page-container>
+
+    <div class="page-content-wrapper {{_pageContainerClass}}">
+      <!-- START PAGE CONTENT -->
+      <div class="content {{_contentClass}}">
+        <router-outlet></router-outlet>
+      </div>
+      <!-- END PAGE CONTENT -->
+      <!-- START COPYRIGHT -->
+      <ng-template [ngIf]="_footer">
+        <div class=" container-fluid container-fixed-lg footer">
+          <div class="copyright sm-text-center">
+            <p class="small no-margin pull-left sm-pull-reset">
+              <span class="hint-text">Copyright &copy; 2017</span>&nbsp;<span class="font-montserrat">REVOX</span>.
+              <span class="hint-text">All rights
+                reserved.</span> <span class="sm-block"><a class="m-l-10 m-r-10" href="javascript:void(0)">Terms of
+                  use</a> <span class="muted">|</span> <a class="m-l-10" href="javascript:void(0)">Privacy
+                  Policy</a></span>
+            </p>
+
+            <p class="small no-margin pull-right sm-pull-reset">
+              Hand-crafted <span class="hint-text">&amp; made with Love</span>
+            </p>
+
+            <div class="clearfix">
+            </div>
+          </div>
+        </div>
+        <!-- END COPYRIGHT -->
+      </ng-template>
+    </div>
+  </page-container>
+  <!-- QUICKSEARCH -->
+  <!-- <app-search-overlay></app-search-overlay> -->
+  <!-- QUICKVIEW -->
+  <!-- <app-quickview></app-quickview> -->
+</ng-template>
